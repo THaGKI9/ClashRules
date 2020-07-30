@@ -1,0 +1,29 @@
+name: Convert and update rules
+
+on:
+  schedule:
+    cron: "0 */1 * * *"
+  workflow_dispatch: ~
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+        ref: refs/heads/source
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Setup Git user info
+      run: |
+        git config --global user.email "thagki9@outlook.com"
+        git config --global user.name "GitHub Actions"
+
+    - name: Convert and update rules
+      run: ./update.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
