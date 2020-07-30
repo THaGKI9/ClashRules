@@ -27,7 +27,9 @@ def convert_rules(surge_rule_path: str):
         elif parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
             # Clash doesn't support force-remote-dns
             sub_parts = parts[1].split(",", 1)
-            new_rule.append(f"  {parts[0]},{sub_parts[0]} # ,{sub_parts[1]}")
+            rule = f"  {parts[0]},{sub_parts[0]}"
+            if len(sub_parts) > 1:
+                rule += " # ," + sub_parts[1]
             continue
 
     print(f"Converted: {surge_rule_path}")
