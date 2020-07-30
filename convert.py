@@ -5,7 +5,7 @@ allowed_pattern = set(["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "
 
 def convert_rules(surge_rule_path: str):
     f = open(surge_rule_path)
-    new_rule = ["payload", ]
+    new_rule = ["payload:", ]
 
     for line in f.readlines():
         line = line.strip()
