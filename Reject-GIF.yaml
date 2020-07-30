@@ -1,2 +1,2 @@
 payload:
-  DOMAIN,non-exist.rixcloud.com
+  - DOMAIN,non-exist.rixcloud.com
