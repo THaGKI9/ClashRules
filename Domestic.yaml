@@ -350,19 +350,8 @@ payload:
   # Client
 
   # >> Proxy
-  - PROCESS-NAME,v2ray
-  - PROCESS-NAME,ss-local
 
   # >> Downloader
-  - PROCESS-NAME,aria2c
-  - PROCESS-NAME,fdm
-  - PROCESS-NAME,Folx
-  - PROCESS-NAME,NetTransport
-  - PROCESS-NAME,Thunder
-  - PROCESS-NAME,Transmission
-  - PROCESS-NAME,uTorrent
-  - PROCESS-NAME,WebTorrent
-  - PROCESS-NAME,WebTorrent Helper
 
   # >> Tencent AIA
   - IP-CIDR,162.14.0.0/18,no-resolve
