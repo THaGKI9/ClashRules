@@ -30,6 +30,7 @@ def convert_rules(surge_rule_path: str):
             rule = f"  {parts[0]},{sub_parts[0]}"
             if len(sub_parts) > 1:
                 rule += " # ," + sub_parts[1]
+            new_rule.append(rule)
             continue
 
     print(f"Converted: {surge_rule_path}")
