@@ -23,7 +23,6 @@ def convert_rules(surge_rule_path: str):
 
         if parts[0] in ["IP-CIDR"]:
             new_rule.append(f"  - {line}")
-            continue
         elif parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
             # Clash doesn't support force-remote-dns
             sub_parts = parts[1].split(",", 1)
@@ -31,7 +30,8 @@ def convert_rules(surge_rule_path: str):
             if len(sub_parts) > 1:
                 rule += " # ," + sub_parts[1]
             new_rule.append(rule)
-            continue
+        else 
+            new_rule.append(f"  # Unsupported rule: {line}")
 
     print(f"Converted: {surge_rule_path}")
     return "\n".join(new_rule)
