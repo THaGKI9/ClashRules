@@ -30,7 +30,7 @@ def convert_rules(surge_rule_path: str):
             if len(sub_parts) > 1:
                 rule += " # ," + sub_parts[1]
             new_rule.append(rule)
-        else 
+        else: 
             new_rule.append(f"  # Unsupported rule: {line}")
 
     print(f"Converted: {surge_rule_path}")
