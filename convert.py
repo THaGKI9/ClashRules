@@ -1,8 +1,6 @@
 import os
 from os import path
 
-allowed_pattern = set(["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "PROCESS-NAME"])
-
 def convert_rules(surge_rule_path: str):
     f = open(surge_rule_path)
     new_rule = ["payload:", ]
@@ -23,8 +21,13 @@ def convert_rules(surge_rule_path: str):
             new_rule.append(f"  # Unrecognized rule: {line}")
             continue
 
-        if parts[0] in allowed_pattern:
+        if parts[0] in ["IP-CIDR", "PROCESS-NAME"]:
             new_rule.append(f"  {line}")
+            continue
+        elif parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
+            # Clash doesn't support force-remote-dns
+            sub_parts = parts[1].split(",", 1)
+            new_rule.append(f"  {parts[0]},{sub_parts[0]} # ,{sub_parts[1]}")
             continue
 
     print(f"Converted: {surge_rule_path}")
