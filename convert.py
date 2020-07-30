@@ -21,7 +21,7 @@ def convert_rules(surge_rule_path: str):
             new_rule.append(f"  # Unrecognized rule: {line}")
             continue
 
-        if parts[0] in ["IP-CIDR", "PROCESS-NAME"]:
+        if parts[0] in ["IP-CIDR"]:
             new_rule.append(f"  - {line}")
             continue
         elif parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
