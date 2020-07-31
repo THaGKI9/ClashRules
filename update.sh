@@ -5,6 +5,7 @@ git rm *
 
 cd ..
 python3 convert.py
+cp .github ./Rules
 
 cd Rules
 git add -A
