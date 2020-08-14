@@ -1,3 +1,4 @@
 [submodule "SurgeRules"]
 	path = SurgeRules
 	url = https://github.com/rixCloud-Inc/rixCloud-Surge3_Rules.git
+	branch = master
