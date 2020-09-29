@@ -458,6 +458,7 @@ payload:
   - DOMAIN,pingtcss.qq.com
   - DOMAIN,splashqqlive.gtimg.com
   - DOMAIN,tajs.qq.com
+  - DOMAIN,access-sngapm.qcloud.com
 
   # >> TikTok (include China / Internation Version)
   - DOMAIN,bds.snssdk.com
